@@ -1,0 +1,38 @@
+package com.myproject.blog.config;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class SecurityCongiuration {
+
+	
+	@Bean
+    public SecurityFilterChain configure(HttpSecurity http) throws Exception {
+        http
+        .csrf()
+        .disable();
+        
+        http.sessionManagement()
+        .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+         
+        http
+        .authorizeRequests()    
+        .antMatchers("/auth/login", "/docs/**", "/users").permitAll()     
+        .antMatchers("/v3/api-docs","/v2/api-docs").permitAll()    
+        .anyRequest().authenticated();
+         
+            http.exceptionHandling()
+                    .authenticationEntryPoint(
+                        (request, response, ex) -> {
+                            response.sendError(
+                                HttpServletResponse.SC_UNAUTHORIZED,
+                                ex.getMessage()
+                            );
+                        }
+                );
+         
+        http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
+         
+        return http.build();
+    }  
+}

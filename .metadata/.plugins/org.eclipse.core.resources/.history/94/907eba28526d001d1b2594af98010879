@@ -1,0 +1,41 @@
+package com.myproject.blog;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+@SpringBootApplication
+public class BloggerSiteApplication implements CommandLineRunner {
+//
+	
+	
+
+	public static void main(String[] args) {
+		SpringApplication.run(BloggerSiteApplication.class, args);
+	}
+	
+	@Bean
+	public ModelMapper modelMapper()
+	{
+		return new ModelMapper();
+	}
+
+//	@Override
+//	public void run(String... args) throws Exception {
+//		String passwordEncoder2 = passwordEncoder2().encode("xyz");
+//		System.out.println(passwordEncoder2);
+//		
+//	}
+//
+//	@Bean
+//	public PasswordEncoder passwordEncoder2() {
+//		return new BCryptPasswordEncoder();	}
+//	
+//	
+	
+
+}

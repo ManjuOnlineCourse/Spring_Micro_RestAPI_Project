@@ -1,0 +1,5 @@
+package com.myproject.blog.config;
+
+public class SecurityCongiuration {
+
+}

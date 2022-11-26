@@ -9,7 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootApplication
-public class BloggerSiteApplication implements CommandLineRunner {
+public class BloggerSiteApplication  {
 //
 	
 	
@@ -24,18 +24,18 @@ public class BloggerSiteApplication implements CommandLineRunner {
 		return new ModelMapper();
 	}
 
-	@Override
-	public void run(String... args) throws Exception {
-		String passwordEncoder2 = passwordEncoder2().encode("xyz");
-		System.out.println(passwordEncoder2);
-		
-	}
-
-	@Bean
-	public PasswordEncoder passwordEncoder2() {
-		return new BCryptPasswordEncoder();	}
-	
-	
+//	@Override
+//	public void run(String... args) throws Exception {
+//		String passwordEncoder2 = passwordEncoder2().encode("xyz");
+//		System.out.println(passwordEncoder2);
+//		
+//	}
+//
+//	@Bean
+//	public PasswordEncoder passwordEncoder2() {
+//		return new BCryptPasswordEncoder();	}
+//	
+//	
 	
 
 }
