@@ -1,0 +1,28 @@
+package com.myproject.EmailNotification;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
+
+import com.myproject.EmailNotification.Service.EmailSendService;
+
+@SpringBootApplication
+public class SpringSecurityJwt1Application {
+
+	@Autowired
+	private EmailSendService emailSendService;
+	public static void main(String[] args) {
+		SpringApplication.run(SpringSecurityJwt1Application.class, args);
+		
+		
+	}
+	@EventListener(ApplicationReadyEvent.class)
+	public void tringgerMail() {
+		
+		emailSendService.sendEmail("manjunandi2016@gmail.com", "This is Test mail", "Hi");
+		
+	}
+
+}

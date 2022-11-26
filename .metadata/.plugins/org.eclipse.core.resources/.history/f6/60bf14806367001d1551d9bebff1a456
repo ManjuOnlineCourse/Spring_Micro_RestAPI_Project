@@ -1,0 +1,11 @@
+package com.myproject.EmailNotification.Service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class EmailSendService {
+
+	public void sendEmail(String toEmail, String emailbody, String emailSubject) {
+		
+	}
+}
